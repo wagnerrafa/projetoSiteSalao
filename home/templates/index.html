@@ -5,9 +5,20 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="{% static '/home.css' %}">
+        <script defer src="{% static '/js/script.js' %}"></script>
         <title>Salao</title>
     </head>
     <body>
-        <h1>Foii</h1>
+        <header>
+            <img onclick="abrirMenu()" src="/static/images/open-menu.png" alt="">
+            <nav class="navbar">
+                <a href="">HOME</a>
+                <a href="">FOTOS</a>
+                <a href="">SERVIÇOS</a>
+                <a href="">PROMOÇÕES</a>
+                <a href="">AGENDAMENTO</a>
+                <a href="">CONTATO</a>
+            </nav>
+        </header>
     </body>
     </html>
