@@ -31,6 +31,9 @@ body{
     font-style: italic;
     font-weight: bold;
 }
+.menu-off{
+    display: none;
+}
 .pgInicial{
     display: flex;
     justify-content: flex-end;
@@ -46,6 +49,14 @@ body{
 }
 
 @media(max-width:500px){
+    header{
+        background-color: #8f6ea1;
+        position: fixed;
+        width: 100%;
+        left: 0;
+        top: 0;
+        padding: 0 12px;
+    }
     .navbar{
         display: flex;
         flex-direction: column;
@@ -58,14 +69,7 @@ body{
         color: black;
         background-color: #8f6ea1;
     }
-    header{
-        background-color: #8f6ea1;
-        position: absolute;
-        width: 100%;
-        left: 0;
-        top: 0;
-        padding: 0 12px;
-    }
+    
     .btn{
        display: flex;
        padding: 4px 8px;
@@ -79,6 +83,7 @@ body{
         -o-transition: 0.5s ease-out;
         transition: 0.5s ease-out;
     }
+    
     .pgInicial{
         display: flex;
         justify-content: center;
