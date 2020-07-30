@@ -1,26 +1,29 @@
 body{
     margin: 0;
-    /* background-image: url("../static/images/logo.jpeg");
+    background-image: url("../static/images/logo.png");
     background-size: contain;
     background-repeat: no-repeat;
-    background-size: 35rem;
-    width: 100%;*/
+    background-size: 100%;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 .btn{
     display: none;
 }
-
+.menu{
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #f7aae2;
+    width: 100%;
+    opacity: 0.8;
+}
 .navbar{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    background-color: #8f6ea1;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    opacity: 0.8;
+ 
 }
 .navbar a{
     text-decoration: none;
@@ -50,40 +53,39 @@ body{
 
 @media(max-width:500px){
     header{
-        background-color: #8f6ea1;
+        background-color: #f7aae2;
         position: fixed;
         width: 100%;
         left: 0;
         top: 0;
-        padding: 0 12px;
+        height: 6vh;
     }
     .navbar{
         display: flex;
         flex-direction: column;
-        top: 50px;
+        position: static;
         margin: 0 -350px;
         width: 50%;
     }
     .navbar a{
         display: flex;
         color: black;
-        background-color: #8f6ea1;
+        background-color: #f7aae2;
+        padding: 15px 30px;
+
     }
-    
     .btn{
        display: flex;
-       padding: 4px 8px;
+       padding: 4px 30px;
     }
     .menu-toogle{
-        margin: -10px;
-        padding: 0 30px;
+        margin: 0px;
         transition-delay: 250ms;
         -webkit-transition: 0.5s ease-out;
         -moz-transition: 0.5s ease-out;
         -o-transition: 0.5s ease-out;
         transition: 0.5s ease-out;
     }
-    
     .pgInicial{
         display: flex;
         justify-content: center;

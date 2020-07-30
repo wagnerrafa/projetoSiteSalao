@@ -4,9 +4,10 @@ function abrirMenu(){
 }
 
 let posAnterior = window.pageYOffset;
-let menu = document.querySelector('.navbar');
+let menu = document.querySelector(".menu");
+
 window.onscroll = function () {
     let posAtual = window.pageYOffset;
-    posAnterior > posAtual ? menu.style.top = "0" : menu.style.top = "-70px";
+    posAnterior > posAtual ? menu.style.top = "0" : menu.style.top = "-380px";
     posAnterior = posAtual;
 }
