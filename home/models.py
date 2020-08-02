@@ -14,17 +14,21 @@ class Servico(models.Model):
 class Informacao(models.Model):
     telefone = models.CharField(
         max_length=20,
-        verbose_name='telefone')
+        verbose_name='Telefone')
     email = models.EmailField(
         max_length=100,
-        verbose_name= 'email')
+        verbose_name= 'Email')
     endereco = models.CharField(
         max_length=255,
-        verbose_name='endereco')
+        verbose_name='Endereço')
     slogan = models.CharField(
         max_length=255,
-        verbose_name='slogan')
+        verbose_name='Slogan')
     nomeLugar = models.CharField(
         max_length=255,
-        verbose_name=' nome do lugar')
+        verbose_name='Nome do lugar')
+    frase = models.CharField(
+        max_length=255,
+        verbose_name='Frase do logo'
+    )
 

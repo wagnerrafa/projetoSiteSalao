@@ -1,7 +1,6 @@
 {% load static %}
-
 <!DOCTYPE html>
-    <html lang="pt-br">
+<html lang="pt-br">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,54 +22,56 @@
         </header>
         <section class="pgInicial">
             <img class="logo" src="../static/images/thay2.jpeg" alt="">
-         </section> 
-
-
-         <h1>Serviços</h1>
-        <section id="servico">
-        {% for dado in dados %}
-        <section class="artigo">
-            <article id="foto">
-                <img src="media/{{dado.upload}}">
-                     <p>{{dado.servico}}</p>
-                     <span>{{dado.descricao}}</span>
-            </article>
         </section>
-
-        {% endfor %}
+        {% for dado in dados %}
+        <main>
+            <h1>Serviços</h1>
+            <section id="servico">
+                <section class="artigo">
+                    <article id="foto">
+                        <img src="media/{{dado.upload}}">
+                        <p>{{dado.servico}}</p>
+                        <span>{{dado.descricao}}</span>
+                    </article>
+                </section>
+        </main>
+            {% endfor %}
         </section>
         <section id="servico"></section>
         <section id="promocao"></section>
         <section id="agenda"></section>
-        <section id="contato">
-        {% for valor in info%}
-            <nav>
-            <div id="frase">
-                <img src="../static/images/logo.jpeg" alt="">
-                <h2>Permita-se mudar</h2>
-                <span>Espaço Thay Soares</span>
-            </div>
-            <div>
-                <h3>
-                    {{valor.slogan}}
-                </h3>
-            </div>
-        </nav>
-        <div class="info"> 
-            <div >
-                <a href="https://instagram.com/sobrancelhasthaysoares?igshid=1q43zyvff88tr" target="_blank"><img src="../static/images/icons/png/002-instagram.png"alt="instagram"></a>
-                <p>Acesse nosso instagram</p>
-            </div>
-            <div >
-                <a href="https://api.whatsapp.com/send?1=pt_BR&phone={{valor.telefone}}" target="_blank"><img src="../static/images/icons/png/003-whatsapp.png" alt="whatsapp"></a>
-                <p>{{valor.telefone}}</p>
-            </div>
-            <div >           
-                <a href="https://www.google.com.br/maps/place/R.+Pedro+Rodrigues+Pereira,+164+-+Jardim+Capelinha,+S%C3%A3o+Paulo+-+SP,+05850-260/@-23.656066,-46.7555413,17z/data=!3m1!4b1!4m5!3m4!1s0x94ce53d0a7f59179:0x2bf6123c8989de79!8m2!3d-23.656066!4d-46.7533526" target="_blank"><img src="../static/images/icons/png/004-placeholder.png" alt="mapa"></a>
-                <p>{{valor.endereco}}</p>
-            </div>
-        </div>
-        {% endfor%}
+        <section id="titulo">
+            <section>
+                <h1>Contato</h1>
+            </section>
+            <section id="contato">
+                <nav>
+                    <div id="frase">
+                        <img src="../static/images/logo.jpeg" alt="">
+                        <h2>{{slogan}}</h2>
+                        <span>{{nomeLugar}}</span>
+                    </div>
+                    <div>
+                        <h3>
+                            {{frase}}
+                        </h3>
+                    </div>
+                </nav>
+                <div class="info">
+                    <div >
+                        <a href="https://instagram.com/sobrancelhasthaysoares?igshid=1q43zyvff88tr" target="_blank"><img src="../static/images/icons/png/002-instagram.png"alt="instagram"></a>
+                        <p>Acesse nosso instagram</p>
+                    </div>
+                    <div >
+                        <a href="https://api.whatsapp.com/send?1=pt_BR&phone={{telefone}}" target="_blank"><img src="../static/images/icons/png/003-whatsapp.png" alt="whatsapp"></a>
+                        <p>{{telefone}}</p>
+                    </div>
+                    <div >
+                        <a href="https://www.google.com.br/maps/place/R.+Pedro+Rodrigues+Pereira,+164+-+Jardim+Capelinha,+S%C3%A3o+Paulo+-+SP,+05850-260/@-23.656066,-46.7555413,17z/data=!3m1!4b1!4m5!3m4!1s0x94ce53d0a7f59179:0x2bf6123c8989de79!8m2!3d-23.656066!4d-46.7533526" target="_blank"><img src="../static/images/icons/png/004-placeholder.png" alt="mapa"></a>
+                        <p>{{endereco}}</p>
+                    </div>
+                </div>
+            </section>
         </section>
     </body>
-    </html>
+</html>
