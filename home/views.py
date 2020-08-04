@@ -1,12 +1,13 @@
 from django.shortcuts import render
-from .models import Servico, Informacao
+from .models import Servico, Informacao, Post
+from django.core.mail import EmailMessage
+from django.utils.safestring import mark_safe
 
-# Create your views here.
 
 def home(request):
     servicos = Servico.objects.all()
     info = Informacao.objects.all()
-
+    msgConfirm = " "
     for iterar in info:
         telefone = iterar.telefone
         email = iterar.email
@@ -14,4 +15,34 @@ def home(request):
         endereco = iterar.endereco
         nomeLugar = iterar.nomeLugar
         frase = iterar.frase
-    return render(request, 'index.html', {'dados': servicos, 'info': info, 'telefone':telefone, 'email':email,'slogan':slogan, 'endereco':endereco, 'nomeLugar':nomeLugar,'frase':frase})
+
+
+    if request.method == 'POST':
+        pessoa = Post()
+        pessoa.nome = request.POST['nome']
+        pessoa.telefone = request.POST['tel']
+        pessoa.email = request.POST['email']
+        pessoa.date = request.POST['date']
+        pessoa.servico = request.POST['servico']
+        pessoa.save()
+
+        filtrarData = pessoa.date
+        filtrarData = filtrarData.split('-')
+        ano= filtrarData[0]
+        mes = filtrarData[1]
+        dia = filtrarData[2]
+        filtrarData1 = dia.split('T')
+        dia = filtrarData1[0]
+        hora = filtrarData1[1]
+        data = dia+"/"+mes+"/"+ano
+
+        msgConfirm = "Obrigado "+pessoa.nome+", o serviço de "+pessoa.servico+" foi marcado para o dia "+data+" ás "+hora+". Qualquer duvida entre em contato pelo telefone "+telefone
+
+        msgMe = pessoa.nome+" agendou o serviço de "+pessoa.servico+" para o dia "+data+" ás "+hora+" Telefone de contato "+pessoa.telefone+" Email de contato "+pessoa.email
+
+        emailUser = EmailMessage('Agendamento',mark_safe(msgConfirm), to=[pessoa.email])
+        emailUser.send()
+        email = EmailMessage('Novo agendamento',mark_safe(msgMe), to=[email])
+        email.send()
+        
+    return render(request, 'index.html', {'dados': servicos, 'info': info, 'telefone':telefone, 'email':email,'slogan':slogan, 'endereco':endereco, 'nomeLugar':nomeLugar,'frase':frase,'msgConfirm':msgConfirm})

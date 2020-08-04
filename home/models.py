@@ -1,7 +1,5 @@
 from django.db import models
 
-# Create your models here.
-
 class Servico(models.Model):
     servico = models.CharField(
         max_length=50,
@@ -32,3 +30,32 @@ class Informacao(models.Model):
         verbose_name='Frase do logo'
     )
 
+class Post(models.Model):
+    dados = Servico.objects.all()
+    Servico1 = []
+    Servico2 = []
+    for dado in dados:
+        Servico2 = Servico1.append(dado)
+    Servico = Servico2
+    nome = models.CharField(
+        max_length=255,
+        verbose_name='Nome'
+    )
+    telefone = models.CharField(
+        max_length=20,
+        verbose_name='Telefone'
+    )
+    email = models.EmailField(
+        max_length=255,
+        verbose_name='Email'
+    )
+    date = models.CharField(
+        max_length=255,
+        verbose_name='Data da sessão'
+    )
+    servico = models.CharField(
+        max_length=255,
+        verbose_name='Servico',
+        choices=Servico
+    )
+    created_at = models.DateField(auto_now_add=True)

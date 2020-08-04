@@ -10,36 +10,67 @@
     </head>
     <body>
         <header class="menu">
-            <img class="btn" onclick="abrirMenu()" src="/static/images/open-menu.png" alt="">
+            <img class="btn" onclick="abrirMenu()" src="/static/images/social.png" alt="">
             <nav class="navbar">
                 <a href="">HOME</a>
                 <a href="#foto">FOTOS</a>
-                <a href="">SERVIÇOS</a>
+                <a href="#mainservico">SERVIÇOS</a>
                 <a href="">PROMOÇÕES</a>
-                <a href="">AGENDAMENTO</a>
+                <a href="#agenda">AGENDAMENTO</a>
                 <a href="#contato">CONTATO</a>
             </nav>
         </header>
         <section class="pgInicial">
             <img class="logo" src="../static/images/thay2.jpeg" alt="">
         </section>
-        {% for dado in dados %}
-        <main>
+        <main id="mainservico">
             <h1>Serviços</h1>
+
             <section id="servico">
-                <section class="artigo">
+                {% for dado in dados %}
+                <section>
                     <article id="foto">
                         <img src="media/{{dado.upload}}">
                         <p>{{dado.servico}}</p>
                         <span>{{dado.descricao}}</span>
-                    </article>
+                    </article> 
+
                 </section>
+                {% endfor %}
         </main>
-            {% endfor %}
         </section>
         <section id="servico"></section>
         <section id="promocao"></section>
-        <section id="agenda"></section>
+
+
+        <section id="agenda">
+            <h1>AGENDAMENTO</h1>
+            <form id="form" method="POST" action="#agenda">{% csrf_token%}
+                <div>
+                    <input type="text"name="nome" placeholder="Seu nome..." required>
+                </div>
+                <div>
+                    <input type="text" name="tel" placeholder="Telefone..." required>
+                </div>
+                <div>
+                    <input type="email" name="email" placeholder="Email...">
+                </div>
+                <div>
+                    <input type="datetime-local" name="date" placeholder="Horario da sessão..." required>
+                </div>
+                <div>
+                    <select name="servico" required>
+                        <option value="" disabled selected>Serviço</option>
+                        {% for dado in dados%}
+                        <option value="{{dado.servico}}">{{dado.servico}}</option>
+                        {%endfor%}
+                    </select>
+                </div>
+                <button class="button">Marcar sessão</button>
+                <p>{{msgConfirm}}</p>
+            </form>
+        </section>
+
         <section id="titulo">
             <section>
                 <h1>Contato</h1>
