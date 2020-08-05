@@ -7,9 +7,9 @@ class Servico(models.Model):
     descricao = models.CharField(
         max_length=255,
         verbose_name='descricao')
-    upload = models.ImageField(upload_to='media/upload/')
+    upload = models.ImageField(upload_to='media/upload/',verbose_name='Foto do serviço')
 
-class Informacao(models.Model):
+class MinhaInformacao(models.Model):
     telefone = models.CharField(
         max_length=20,
         verbose_name='Telefone')
@@ -23,14 +23,21 @@ class Informacao(models.Model):
         max_length=255,
         verbose_name='Slogan')
     nomeLugar = models.CharField(
-        max_length=255,
+        max_length=50,
         verbose_name='Nome do lugar')
     frase = models.CharField(
         max_length=255,
         verbose_name='Frase do logo'
     )
+    instagram = models.CharField(
+        max_length=50,
+        verbose_name='Nome do usúario Instagram'
+    )
+    foto = models.ImageField(upload_to='media/upload/',verbose_name='Foto de capa')
+    logo = models.ImageField(upload_to='media/upload/',verbose_name='Logo')
+    fotoFundo = models.ImageField(upload_to='media/upload/',verbose_name='Foto de fundo da pagina')
 
-class Post(models.Model):
+class Cliente(models.Model):
     dados = Servico.objects.all()
     Servico1 = []
     Servico2 = []
@@ -50,11 +57,11 @@ class Post(models.Model):
         verbose_name='Email'
     )
     date = models.CharField(
-        max_length=255,
+        max_length=20,
         verbose_name='Data da sessão'
     )
     servico = models.CharField(
-        max_length=255,
+        max_length=50,
         verbose_name='Servico',
         choices=Servico
     )

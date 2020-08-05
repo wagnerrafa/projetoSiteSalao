@@ -8,7 +8,7 @@
         <script defer src="{% static '/js/script.js' %}"></script>
         <title>Salao</title>
     </head>
-    <body>
+    <body style="background-image: url('media/{{fotoFundo}}')">
         <header class="menu">
             <img class="btn" onclick="abrirMenu()" src="/static/images/social.png" alt="">
             <nav class="navbar">
@@ -21,7 +21,7 @@
             </nav>
         </header>
         <section class="pgInicial">
-            <img class="logo" src="../static/images/thay2.jpeg" alt="">
+            <img class="logo" src="media/{{foto}}" alt="">
         </section>
         <main id="mainservico">
             <h1>Serviços</h1>
@@ -78,7 +78,7 @@
             <section id="contato">
                 <nav>
                     <div id="frase">
-                        <img src="../static/images/logo.jpeg" alt="">
+                        <img src="/media/{{logo}}" alt="">
                         <h2>{{slogan}}</h2>
                         <span>{{nomeLugar}}</span>
                     </div>
@@ -90,7 +90,7 @@
                 </nav>
                 <div class="info">
                     <div >
-                        <a href="https://instagram.com/sobrancelhasthaysoares?igshid=1q43zyvff88tr" target="_blank"><img src="../static/images/icons/png/002-instagram.png"alt="instagram"></a>
+                        <a href="https://instagram.com/{{instagram}}/" target="_blank"><img src="../static/images/icons/png/002-instagram.png"alt="instagram"></a>
                         <p>Acesse nosso instagram</p>
                     </div>
                     <div >

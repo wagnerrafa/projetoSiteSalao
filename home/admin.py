@@ -1,7 +1,6 @@
 from django.contrib import admin
-from .models import Servico, Informacao, Post
-# Register your models here.
+from .models import Servico, MinhaInformacao, Cliente
 
+admin.site.register(MinhaInformacao)
 admin.site.register(Servico)
-admin.site.register(Informacao)
-admin.site.register(Post)
+admin.site.register(Cliente)
