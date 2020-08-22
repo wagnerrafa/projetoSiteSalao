@@ -1,12 +1,14 @@
 from django.shortcuts import render
-from .models import Servico, MinhaInformacao, Cliente
+from .models import Servico, MinhaInformacao, Cliente, Promo
 from django.core.mail import EmailMessage
 from django.utils.safestring import mark_safe
 
 def home(request):
     servicos = Servico.objects.all()
     info = MinhaInformacao.objects.all()
+    promo = Promo.objects.all()
     msgConfirm = " "
+
     for iterar in info:
         telefone = iterar.telefone
         email = iterar.email
@@ -18,7 +20,7 @@ def home(request):
         foto = iterar.foto
         logo = iterar.logo
         fotoFundo = iterar.fotoFundo
-
+    
     if request.method == 'POST':
         pessoa = Post()
         pessoa.nome = request.POST['nome']
@@ -47,5 +49,5 @@ def home(request):
         email = EmailMessage('Novo agendamento',mark_safe(msgMe), to=[email])
         email.send()
         
-    return render(request, 'index.html', {'dados': servicos, 'info': info, 'telefone':telefone, 'email':email,'slogan':slogan, 'endereco':endereco, 'nomeLugar':nomeLugar,'frase':frase,'msgConfirm':msgConfirm,'instagram':instagram,'foto':foto,'logo':logo,'fotoFundo':fotoFundo})
+    return render(request, 'index.html', {'dados': servicos, 'info': info, 'telefone':telefone, 'email':email,'slogan':slogan, 'endereco':endereco, 'nomeLugar':nomeLugar,'frase':frase,'msgConfirm':msgConfirm,'instagram':instagram,'foto':foto,'logo':logo,'fotoFundo':fotoFundo,'promo':promo})
 

@@ -66,3 +66,18 @@ class Cliente(models.Model):
         choices=Servico
     )
     created_at = models.DateField(auto_now_add=True)
+
+class Promo(models.Model):
+    imagemPromo = models.ImageField(upload_to='media/upload/',verbose_name='Foto da Promoção')
+    tituloPromo = models.CharField(
+        max_length=50,
+        verbose_name='Titulo da Promoção'
+    )
+    descPromo = models.CharField(
+        max_length=255,
+        verbose_name='Descrição com detalhes da promoção'
+    )
+    dataDuracao = models.DateField(
+        verbose_name='Data final da Promoção'
+    )
+    dataCriacao = models.DateField(auto_now_add=True)

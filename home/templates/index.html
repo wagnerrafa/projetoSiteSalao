@@ -7,6 +7,11 @@
         <link rel="stylesheet" href="{% static '/home.css' %}">
         <script defer src="{% static '/js/script.js' %}"></script>
         <title>Salao</title>
+        <meta property="og:url"                content="http://127.0.0.1:8080" />
+        <meta property="og:type"               content="article" />
+        <meta property="og:title"              content="Salão de beleza Thay Soares" />
+        <meta property="og:description"        content="Meu salão de beleza" />
+        <meta property="og:image"              content="http://127.0.0.1:8000" />
     </head>
     <body style="background-image: url('media/{{fotoFundo}}')">
         <header class="menu">
@@ -40,7 +45,57 @@
         </main>
         </section>
         <section id="servico"></section>
-        <section id="promocao"></section>
+            
+        
+        {%for pro in promo%}
+        <section id="promocao" class="container">
+            <div class="wall wall-{{pro.id}}" id="wall-{{pro.id}}">
+                {% if pro.id != 1%}
+                <a href="#wall-{{pro.id|add:'-1'}}">Voltar</a>
+                {%endif%}
+                <a href="#wall-{{pro.id|add:'+1'}}">Avançar</a>
+
+
+            <div id="tituloPromo">
+                <h1>PROMOÇÕES</h1>
+                <img src="../static/images/promotion.png" alt="">
+            </div>
+            <div id="cardPromo">
+                <div>
+                    <p>{{pro.dataCriacao}} á {{pro.dataDuracao}}</p>
+                    <h2>{{pro.tituloPromo}}</h2>
+                    <div class="btns" id="btn">
+                        <a class="button" href="#agenda">Agende</a>
+                        <a class="button" href="">Mais...</a>
+                    </div>
+                    <p>Compartilhe para suas amigas</p>
+                    <a id="whatsImg" href="https://api.whatsapp.com/send?1=pt_BR&phone={{telefone}}" target="_blank"><img src="../static/images/icons/png/003-whatsapp.png" alt="whatsapp"></a>
+                </div>
+                <div id="imgPromo">
+                    <img id="imgParaWhats" src="/media/{{pro.imagemPromo}}" alt="">
+                </div>
+            </div>
+        </div>
+
+        </section>
+        
+        {% endfor %}
+
+        <!-- <div id="carousel-example" class="carousel slide hidden-xs" data-ride="carousel">
+            <div class="carousel-inner">
+            {% for p in promo %}
+            <div class="item {% if forloop.first %} active {% endif %}"> // here is the problem
+               <div class="row">
+                 <div class="col-sm-3">
+                   <h1>{{p.tituloPromo}}</h1>
+                 </div>
+               </div>
+            </div>
+            {% endfor %}
+            </div>
+            </div> -->
+
+
 
 
         <section id="agenda">
