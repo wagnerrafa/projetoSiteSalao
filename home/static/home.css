@@ -189,7 +189,7 @@ border-radius: 10px;
     width: 80%;
 }
 #imgPromo img{
-    width: 50vw;
+    height: 50vh;
 }
 #cardPromo div{
     padding: 10px;
@@ -212,7 +212,7 @@ border-radius: 10px;
     font-size: 0.9rem;
 }
 #cardPromo a:first-child{
-    background-color: red;
+    background-color:#ffda2d;
 }
 
 #cardPromo h2{
@@ -229,6 +229,14 @@ border-radius: 10px;
     width: 70%;
 }
 
+.avancar{
+    display: flex;
+    justify-content: center;
+}
+.avancar a{
+    padding: 20px;
+
+}
 #contato {
     display: flex;
     justify-content: space-evenly;
@@ -290,6 +298,9 @@ border-radius: 10px;
     display: none;
     width: 100%;
     height: 100%;
+}
+.wall-1{
+    display: block;
 }
 
 .wall:target{

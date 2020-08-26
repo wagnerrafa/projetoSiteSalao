@@ -20,7 +20,7 @@
                 <a href="">HOME</a>
                 <a href="#foto">FOTOS</a>
                 <a href="#mainservico">SERVIÇOS</a>
-                <a href="">PROMOÇÕES</a>
+                <a href="#promocao">PROMOÇÕES</a>
                 <a href="#agenda">AGENDAMENTO</a>
                 <a href="#contato">CONTATO</a>
             </nav>
@@ -44,25 +44,18 @@
                 {% endfor %}
         </main>
         </section>
-        <section id="servico"></section>
             
         
         {%for pro in promo%}
         <section id="promocao" class="container">
             <div class="wall wall-{{pro.id}}" id="wall-{{pro.id}}">
-                {% if pro.id != 1%}
-                <a href="#wall-{{pro.id|add:'-1'}}">Voltar</a>
-                {%endif%}
-                <a href="#wall-{{pro.id|add:'+1'}}">Avançar</a>
-
-
             <div id="tituloPromo">
                 <h1>PROMOÇÕES</h1>
                 <img src="../static/images/promotion.png" alt="">
             </div>
             <div id="cardPromo">
                 <div>
-                    <p>{{pro.dataCriacao}} á {{pro.dataDuracao}}</p>
+                    <p>{{pro.dataCriacao}} a {{pro.dataDuracao}}</p>
                     <h2>{{pro.tituloPromo}}</h2>
                     <div class="btns" id="btn">
                         <a class="button" href="#agenda">Agende</a>
@@ -75,27 +68,20 @@
                     <img id="imgParaWhats" src="/media/{{pro.imagemPromo}}" alt="">
                 </div>
             </div>
-        </div>
+            <div class="avancar">
+                {% if pro.id > 1 %}
+                    <a href="#wall-{{pro.id|add:'-1'}}"><img src="../static/images/voltar-seta-curvada.png" alt="Promoção Anterior"></a>
+                       
+                {%endif%}
 
+                {% if pro.id < contPromo %}
+                    <a href="#wall-{{pro.id|add:'+1'}}"><img src="../static/images/seta-avancada.png" alt="Proxima Promoção" onclick="esconderWall()" class="evento"></a>
+                {% endif %}
+            </div>
+        </div>
         </section>
         
         {% endfor %}
-
-        <!-- <div id="carousel-example" class="carousel slide hidden-xs" data-ride="carousel">
-            <div class="carousel-inner">
-            {% for p in promo %}
-            <div class="item {% if forloop.first %} active {% endif %}"> // here is the problem
-               <div class="row">
-                 <div class="col-sm-3">
-                   <h1>{{p.tituloPromo}}</h1>
-                 </div>
-               </div>
-            </div>
-            {% endfor %}
-            </div>
-            </div> -->
-
-
 
 
         <section id="agenda">

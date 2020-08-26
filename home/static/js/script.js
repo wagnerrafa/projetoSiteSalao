@@ -1,4 +1,4 @@
-window.location = "#wall-1";
+// window.location = "#wall-1"
 
 function abrirMenu(){
     let menu = document.querySelector(".navbar");
@@ -18,3 +18,14 @@ document.addEventListener("DOMContentLoaded", function() {
     var conteudo = encodeURIComponent(document.title + " " + window.location.href);
     document.getElementById("whatsImg").href = "https://api.whatsapp.com/send?text=" + conteudo
 }, false);
+
+var i=1;
+
+function esconderWall(){
+    if(i==1){
+    // document.querySelector(".wall-1").style.display = 'none';
+    document.querySelector(".wall-1").className = 'wall';
+    i++;
+    }
+}
+

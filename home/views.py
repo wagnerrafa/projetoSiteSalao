@@ -8,6 +8,7 @@ def home(request):
     info = MinhaInformacao.objects.all()
     promo = Promo.objects.all()
     msgConfirm = " "
+    contPromo = len(promo)
 
     for iterar in info:
         telefone = iterar.telefone
@@ -49,5 +50,5 @@ def home(request):
         email = EmailMessage('Novo agendamento',mark_safe(msgMe), to=[email])
         email.send()
         
-    return render(request, 'index.html', {'dados': servicos, 'info': info, 'telefone':telefone, 'email':email,'slogan':slogan, 'endereco':endereco, 'nomeLugar':nomeLugar,'frase':frase,'msgConfirm':msgConfirm,'instagram':instagram,'foto':foto,'logo':logo,'fotoFundo':fotoFundo,'promo':promo})
+    return render(request, 'index.html', {'dados': servicos, 'info': info, 'telefone':telefone, 'email':email,'slogan':slogan, 'endereco':endereco, 'nomeLugar':nomeLugar,'frase':frase,'msgConfirm':msgConfirm,'instagram':instagram,'foto':foto,'logo':logo,'fotoFundo':fotoFundo,'promo':promo,'contPromo':contPromo})
 
