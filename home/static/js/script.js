@@ -19,27 +19,43 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("whatsImg").href = "https://api.whatsapp.com/send?text=" + conteudo
 }, false);
 
-var i=1;
 
+var executar = false;
+var intervalo;
+var executarAuto = false;
+
+var verExecutado = false
 function esconderWall(){
-    if(i==1){
+    if( verExecutado == false){
     document.querySelector(".wall-1").className = 'wall';
-    i++;
+    verExecutado = true;
     }
 }
 
 
 var a =1;
-var fim = document.querySelector(".contarPromo").innerText
-function exibirPromo(){
-    esconderWall();
-    console.log("a"+a)
-    console.log("fim"+fim)
-    document.getElementById('url-'+a).click();  
+var fim = document.querySelector(".contarPromo").innerText;
 
+function preExibir(){
+    if( executar == false){
+        intervalo = setInterval(exibirPromo, 5000);
+        setTimeout(esconderWall, 5000);
+        executar = true;
+        executarAuto = true;
+    }
+}
+
+function exibirPromo(){
+    document.getElementById('url-'+a).click();  
     a++;
     if(a > fim){
         a=1;
     }
 }
-setInterval(exibirPromo, 5000)
+function desativarAuto(){
+    if(executarAuto == true){
+    clearInterval(intervalo);
+    executar= false; 
+    executarAuto = false
+    }   
+}
