@@ -23,9 +23,23 @@ var i=1;
 
 function esconderWall(){
     if(i==1){
-    // document.querySelector(".wall-1").style.display = 'none';
     document.querySelector(".wall-1").className = 'wall';
     i++;
     }
 }
 
+
+var a =1;
+var fim = document.querySelector(".contarPromo").innerText
+function exibirPromo(){
+    esconderWall();
+    console.log("a"+a)
+    console.log("fim"+fim)
+    document.getElementById('url-'+a).click();  
+
+    a++;
+    if(a > fim){
+        a=1;
+    }
+}
+setInterval(exibirPromo, 5000)
