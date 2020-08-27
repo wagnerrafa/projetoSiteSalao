@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
 }, false);
 
 
+
 var executar = false;
 var intervalo;
 var executarAuto = false;

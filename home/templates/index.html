@@ -13,7 +13,7 @@
         <meta property="og:description"        content="Meu salão de beleza" />
         <meta property="og:image"              content="http://127.0.0.1:8000" />
     </head>
-    <body style="background-image: url('media/{{fotoFundo}}')">
+    <body >
         <header class="menu">
             <img class="btn" onclick="abrirMenu()" src="/static/images/social.png" alt="">
             <nav class="navbar">
@@ -45,7 +45,8 @@
         </main>
         </section>
         {%for pro in promo%}
-        <section id="promocao" class="container" onmouseout="setInterval(desativarAuto(),5000)" onmouseenter="preExibir()">
+        <section id="promocao" class="container"onmouseout="setInterval(desativarAuto(),5000)" onmouseenter="preExibir()"
+        >
             <div class="wall wall-{{pro.id}}" id="wall-{{pro.id}}">
             <div id="tituloPromo">
                 <h1>PROMOÇÕES</h1>
