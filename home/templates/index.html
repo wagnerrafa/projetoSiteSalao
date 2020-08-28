@@ -18,7 +18,7 @@
             <img class="btn" onclick="abrirMenu()" src="/static/images/social.png" alt="">
             <nav class="navbar">
                 <a href="">HOME</a>
-                <a href="#foto">FOTOS</a>
+                <!-- <a href="#foto">FOTOS</a> -->
                 <a href="#mainservico">SERVIÇOS</a>
                 <a href="#promocao">PROMOÇÕES</a>
                 <a href="#agenda">AGENDAMENTO</a>
@@ -45,8 +45,8 @@
         </main>
         </section>
         {%for pro in promo%}
-        <section id="promocao" class="container"onmouseout="setInterval(desativarAuto(),5000)" onmouseenter="preExibir()"
-        >
+        <section id="promocao" class="container" onmouseenter="setTimeout('preExibir();', 10000);
+        ">
             <div class="wall wall-{{pro.id}}" id="wall-{{pro.id}}">
             <div id="tituloPromo">
                 <h1>PROMOÇÕES</h1>
@@ -79,10 +79,10 @@
 
                 {% if pro.id <= contPromo %}
                     {% if pro.id == contPromo %}
-                        <a href="#wall-{{pro.id|add:'contPromo'|add:'1'}}"id="url-{{pro.id}}"><img src="../static/images/seta-avancada.png" alt="Proxima Promoção"></a>
+                        <a href="#wall-1"id="url-{{pro.id}}"><img src="../static/images/seta-avancada.png" alt="Proxima Promoção"></a>
                     
                 {%else%}
-                    <a href="#wall-{{pro.id|add:'+1'}}"id="url-{{pro.id}}"><img src="../static/images/seta-avancada.png" alt="Proxima Promoção" onclick="esconderWall()"></a>
+                    <a href="#wall-{{pro.id|add:'+1'}}"id="url-{{pro.id}}"><img src="../static/images/seta-avancada.png" alt="Proxima Promoção"></a>
                     {% endif %}
                 {% endif %}
             </div>

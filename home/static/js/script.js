@@ -1,4 +1,3 @@
-// window.location = "#wall-1"
 
 function abrirMenu(){
     let menu = document.querySelector(".navbar");
@@ -21,42 +20,25 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-var executar = false;
-var intervalo;
-var executarAuto = false;
-
-var verExecutado = false
+var verExecutado = false;
 function esconderWall(){
-    if( verExecutado == false){
-    document.querySelector(".wall-1").className = 'wall';
+    if(verExecutado == false){
+    document.querySelector(".wall-1").classList = 'wall';
     verExecutado = true;
     }
 }
 
-
 var a =1;
 var fim = document.querySelector(".contarPromo").innerText;
 
-function preExibir(){
-    if( executar == false){
-        intervalo = setInterval(exibirPromo, 5000);
-        setTimeout(esconderWall, 5000);
-        executar = true;
-        executarAuto = true;
-    }
-}
-
-function exibirPromo(){
-    document.getElementById('url-'+a).click();  
+function preExibir(){ 
+    esconderWall();        
+    document.getElementById('url-'+a).click();
     a++;
     if(a > fim){
         a=1;
     }
-}
-function desativarAuto(){
-    if(executarAuto == true){
-    clearInterval(intervalo);
-    executar= false; 
-    executarAuto = false
-    }   
-}
+    }
+
+
+
