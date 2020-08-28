@@ -15,7 +15,7 @@
     </head>
     <body >
         <header class="menu">
-            <img class="btn" onclick="abrirMenu()" src="/static/images/social.png" alt="">
+            <img class="btn" onclick="abrirMenu()" src="/static/images/menu.png" alt="">
             <nav class="navbar">
                 <a href="">HOME</a>
                 <!-- <a href="#foto">FOTOS</a> -->
@@ -96,13 +96,13 @@
             <h1>AGENDAMENTO</h1>
             <form id="form" method="POST" action="#agenda">{% csrf_token%}
                 <div>
-                    <input type="text"name="nome" placeholder="Seu nome..." required>
+                    <input type="text" name="nome" placeholder="Seu nome..." required>
                 </div>
                 <div>
-                    <input type="text" name="tel" placeholder="Telefone..." required>
+                    <input type="text" inputmode="tel" name="tel" placeholder="Telefone..." required>
                 </div>
                 <div>
-                    <input type="email" name="email" placeholder="Email...">
+                    <input type="email" inputmode="email" name="email" placeholder="Email...">
                 </div>
                 <div>
                     <input type="datetime-local" name="date" placeholder="Horario da sessão..." required>
