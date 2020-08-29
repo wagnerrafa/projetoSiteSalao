@@ -45,8 +45,9 @@
         </main>
         </section>
         {%for pro in promo%}
-        <section id="promocao" class="container" onmouseenter="setTimeout('preExibir();', 10000);
-        ">
+        <section id="promocao" class="container" onmouseenter="setTimeout('preExibir();', 10000);">
+            <p hidden class="contarPromo">{{contPromo}}</p>
+
             <div class="wall wall-{{pro.id}}" id="wall-{{pro.id}}">
             <div id="tituloPromo">
                 <h1>PROMOÇÕES</h1>
@@ -68,23 +69,8 @@
                 </div>
             </div>
             <div class="avancar">
-                {% if pro.id > 1 %}
-                    <p hidden class="contarPromo">{{contPromo}}</p>
-                    <a href="#wall-{{pro.id|add:'-1'}}"><img src="../static/images/voltar-seta-curvada.png" alt="Promoção Anterior"></a>
-                {% else %}
-                    {% if pro.id <= 1 %}
-                        <a href="#wall-{{contPromo}}"><img src="../static/images/voltar-seta-curvada.png" alt="Promoção Anterior"></a>
-                    {% endif %}
-                {% endif %}
-
-                {% if pro.id <= contPromo %}
-                    {% if pro.id == contPromo %}
-                        <a href="#wall-1"id="url-{{pro.id}}"><img src="../static/images/seta-avancada.png" alt="Proxima Promoção"></a>
-                    
-                {%else%}
-                    <a href="#wall-{{pro.id|add:'+1'}}"id="url-{{pro.id}}"><img src="../static/images/seta-avancada.png" alt="Proxima Promoção"></a>
-                    {% endif %}
-                {% endif %}
+                <img src="../static/images/voltar-seta-curvada.png" onclick="proximaPromo(me = 'voltar')" alt="">
+                <img id="url-{{pro.id}}" src="../static/images/seta-avancada.png" onclick="proximaPromo(me = 'avancar')" alt="">
             </div>
         </div>
         </section>

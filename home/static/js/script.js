@@ -19,26 +19,32 @@ document.addEventListener("DOMContentLoaded", function() {
 }, false);
 
 
-
-var verExecutado = false;
-function esconderWall(){
-    if(verExecutado == false){
-    document.querySelector(".wall-1").classList = 'wall';
-    verExecutado = true;
-    }
-}
-
-var a =1;
+var cont =1;
+var contAuto = cont;
 var fim = document.querySelector(".contarPromo").innerText;
 
 function preExibir(){ 
-    esconderWall();        
-    document.getElementById('url-'+a).click();
-    a++;
-    if(a > fim){
-        a=1;
+    document.getElementById('url-'+contAuto).click();
+    contAuto++;
+    if(contAuto > fim){
+        contAuto=1;
     }
+}
+
+function proximaPromo(me){
+    document.getElementById("wall-"+cont).style.display = 'none';
+    if(me == "voltar"){
+        cont--;
     }
-
-
-
+    else{
+        cont++;
+    }
+    if(cont > fim){
+        cont=1;
+    }
+    if(cont == 0){
+        cont = fim;
+    }
+    let idWall = "wall-"+cont;
+    document.getElementById(idWall).style.display = 'block';
+}
