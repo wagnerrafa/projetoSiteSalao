@@ -2,14 +2,15 @@ from django.shortcuts import render
 from .models import Servico, MinhaInformacao, Cliente, Promo
 from django.core.mail import EmailMessage
 from django.utils.safestring import mark_safe
+from django.http import HttpResponse
 
 def home(request):
     servicos = Servico.objects.all()
     info = MinhaInformacao.objects.all()
     promo = Promo.objects.all()
     msgConfirm = " "
+    response = "a"
     contPromo = len(promo)
-
     for iterar in info:
         telefone = iterar.telefone
         email = iterar.email
@@ -23,7 +24,7 @@ def home(request):
         fotoFundo = iterar.fotoFundo
     
     if request.method == 'POST':
-        pessoa = Post()
+        pessoa = Cliente()
         pessoa.nome = request.POST['nome']
         pessoa.telefone = request.POST['tel']
         pessoa.email = request.POST['email']
@@ -49,6 +50,11 @@ def home(request):
         emailUser.send()
         email = EmailMessage('Novo agendamento',mark_safe(msgMe), to=[email])
         email.send()
+        response = HttpResponse()
+        response = response.status_code
+
+
         
-    return render(request, 'index.html', {'dados': servicos, 'info': info, 'telefone':telefone, 'email':email,'slogan':slogan, 'endereco':endereco, 'nomeLugar':nomeLugar,'frase':frase,'msgConfirm':msgConfirm,'instagram':instagram,'foto':foto,'logo':logo,'fotoFundo':fotoFundo,'promo':promo,'contPromo':contPromo})
+
+    return render(request, 'index.html', {'dados': servicos, 'info': info, 'telefone':telefone, 'email':email,'slogan':slogan, 'endereco':endereco, 'nomeLugar':nomeLugar,'frase':frase,'msgConfirm':msgConfirm,'instagram':instagram,'foto':foto,'logo':logo,'fotoFundo':fotoFundo,'promo':promo,'contPromo':contPromo,'response':response})
 

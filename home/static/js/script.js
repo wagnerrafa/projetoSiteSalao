@@ -48,3 +48,17 @@ function proximaPromo(me){
     let idWall = "wall-"+cont;
     document.getElementById(idWall).style.display = 'block';
 }
+
+function carregarResposta(){
+    document.querySelector(".sk-cube-grid").style.display = 'block';
+    var resposta = document.querySelector(".resposta").innerHTML
+    while(resposta == "a")
+    {
+        carregarResposta();
+    }
+    document.querySelector(".sk-cube-grid").style.display = 'none';
+}
+
+// function exibirLoading(){
+//     document.querySelector(".sk-cube-grid").style.display = 'block';
+// }
