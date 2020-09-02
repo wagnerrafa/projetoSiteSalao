@@ -33,6 +33,7 @@ function preExibir(){
 
 function proximaPromo(me){
     document.getElementById("wall-"+cont).style.display = 'none';
+
     if(me == "voltar"){
         cont--;
     }
@@ -58,7 +59,3 @@ function carregarResposta(){
     }
     document.querySelector(".sk-cube-grid").style.display = 'none';
 }
-
-// function exibirLoading(){
-//     document.querySelector(".sk-cube-grid").style.display = 'block';
-// }
