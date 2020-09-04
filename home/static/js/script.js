@@ -32,13 +32,24 @@ function preExibir(){
 }
 
 function proximaPromo(me){
-    document.getElementById("wall-"+cont).style.display = 'none';
+if(me == "voltar"){
+    document.getElementById("wall-"+cont).className = "wallRight";
+}
+else{
+    document.getElementById("wall-"+cont).className = "wallLeft";
+}
+    let teste = document.getElementById("wall-"+cont);
+
+    setTimeout( function() {
+        teste.className = "wallOff";
+    }, 1000 );  
+
     if(me == "voltar"){
         cont--;
     }
-    else{
-        cont++;
-    }
+        else{
+            cont++;
+        }
     if(cont > fim){
         cont=1;
     }
@@ -46,7 +57,10 @@ function proximaPromo(me){
         cont = fim;
     }
     let idWall = "wall-"+cont;
-    document.getElementById(idWall).style.display = 'block';
+    
+    setTimeout( function() {
+        document.getElementById(idWall).className = "wallOn"
+    }, 1000 ); 
 }
 
 function carregarResposta(){
@@ -58,7 +72,3 @@ function carregarResposta(){
     }
     document.querySelector(".sk-cube-grid").style.display = 'none';
 }
-
-// function exibirLoading(){
-//     document.querySelector(".sk-cube-grid").style.display = 'block';
-// }

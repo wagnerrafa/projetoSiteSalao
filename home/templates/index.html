@@ -13,7 +13,7 @@
         <meta property="og:description"        content="Meu salão de beleza" />
         <meta property="og:image"              content="http://127.0.0.1:8000" />
     </head>
-    <body >
+    <body>
         <header class="menu">
             <img class="btn" onclick="abrirMenu()" src="/static/images/menu.png" alt="">
             <nav class="navbar">
@@ -54,14 +54,15 @@
                         <img src="media/{{dado.upload}}">
                         <p>{{dado.servico}}</p>
                         <span>{{dado.descricao}}</span>
-                    </article> 
+                    </article>
 
                 </section>
                 {% endfor %}
         </main>
         </section>
         {%for pro in promo%}
-        <section id="promocao" class="container" onmouseenter="setTimeout('preExibir();', 10000);">
+<!--         onmouseenter="setTimeout('preExibir();', 10000);"
+ -->        <section id="promocao" class="container" >
             <p hidden class="contarPromo">{{contPromo}}</p>
 
             <div class="wall wall-{{pro.id}}" id="wall-{{pro.id}}">
@@ -90,7 +91,7 @@
             </div>
         </div>
         </section>
-        
+
         {% endfor %}
 
 
