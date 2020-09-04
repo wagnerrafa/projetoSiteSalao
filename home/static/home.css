@@ -92,6 +92,12 @@ h1 {
     align-items: center;
     padding: 20px;
 }
+#foto:hover{
+    transition: 0.5s ease-in-out;
+    transform: translateY(-3px);
+    -webkit-filter: drop-shadow(15px 10px 5px rgba(0,0,0,.5));
+    filter: drop-shadow(15px 10px 5px rgba(0,0,0,.5));
+}
 
 #foto img {
     width: 18rem;
@@ -169,7 +175,16 @@ border-radius: 10px;
     -webkit-filter: drop-shadow(15px 10px 5px rgba(0,0,0,.5));
     filter: drop-shadow(15px 10px 5px rgba(0,0,0,.5));
 }  
+<<<<<<< HEAD
 
+=======
+/* img:hover{
+    transition: 0.5s ease-in-out;
+    transform: translateY(-3px);
+    -webkit-filter: drop-shadow(15px 10px 5px rgba(0,0,0,.5));
+    filter: drop-shadow(15px 10px 5px rgba(0,0,0,.5));
+} */
+>>>>>>> e54b48d9d6cf94530dee58f50ed6715042e1b1d0
 #titulo {
     width: 100%;
     min-height: 85vh;
@@ -288,9 +303,12 @@ border-radius: 10px;
 .info div a {
     padding: 10px;
 }
+
 #promocao{
     overflow:hidden;
 }
+
+
 .wall{
     display: none;
     width: 100%;
@@ -334,6 +352,17 @@ border-radius: 10px;
 }
 .wallOff{
     display: none;
+}
+
+.efeito{
+    display: none;
+    margin: 0 0 0 -3050px;
+    transition-delay: 250ms;
+    -webkit-transition: 0.5s ease-out;
+    -moz-transition: 0.5s ease-out;
+    -o-transition: 0.5s ease-out;
+    transition: 0.5s ease-out; 
+    opacity: 0;
 }
 
 .efeito{
