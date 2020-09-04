@@ -71,12 +71,16 @@
                 <img src="../static/images/promotion.png" alt="">
             </div>
             <div id="cardPromo">
-                <div>
+                <nav class="descricaoPromocao">    
+                    <p>{{pro.descPromo}}</p>
+                    <a class="button" id="{{pro.id}}" onclick="fecharDesc(id)" href="#promocao">Voltar</a>
+                </nav>
+                <div class="infoPromo">
                     <p>{{pro.dataCriacao}} a {{pro.dataDuracao}}</p>
                     <h2>{{pro.tituloPromo}}</h2>
                     <div class="btns" id="btn">
                         <a class="button" href="#agenda">Agende</a>
-                        <a class="button" href="">Mais...</a>
+                        <a class="button" id="{{pro.id}}" onclick="abrirDesc(id)" href="#promocao">Mais...</a>
                     </div>
                     <p>Compartilhe para suas amigas</p>
                     <a id="whatsImg" href="https://api.whatsapp.com/send?1=pt_BR&phone={{telefone}}" target="_blank"><img src="../static/images/icons/png/003-whatsapp.png" alt="whatsapp"></a>

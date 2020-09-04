@@ -72,3 +72,14 @@ function carregarResposta(){
     }
     document.querySelector(".sk-cube-grid").style.display = 'none';
 }
+
+function abrirDesc(id){
+    id -=1;
+    document.querySelectorAll(".descricaoPromocao")[id].style.display = 'flex';
+    document.querySelectorAll(".infoPromo")[id].style.display = 'none';
+}
+function fecharDesc(id){
+    id -=1;
+    document.querySelectorAll(".infoPromo")[id].style.display = 'block';
+    document.querySelectorAll(".descricaoPromocao")[id].style.display = 'none';
+}
