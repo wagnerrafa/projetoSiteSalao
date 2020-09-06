@@ -246,13 +246,14 @@ border-radius: 10px;
 }
 #contato {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
 }
 
 #contato nav {
     display: inline-flex;
     align-items: center;
-    padding: 20px;
+    padding: 10px;
 }
 
 #contato div {
@@ -306,6 +307,18 @@ border-radius: 10px;
     padding: 20px;
     flex-direction: column;
     flex-wrap: wrap;
+}
+
+
+#contato .horario{
+    width: 30%;
+    padding: 10px;
+}
+#contato .horario-semana{
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .wall{
@@ -525,6 +538,9 @@ border-radius: 10px;
         flex-direction: column;
         text-align: center;
         align-items: center;
+    }
+    #contato .horario{
+        width: 90%;
     }
     .descricaoPromocao{
         width: 90%;
