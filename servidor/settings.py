@@ -130,4 +130,10 @@ EMAIL_HOST_USER = 'meuEmail'
 EMAIL_HOST_PASSWORD = 'minhaSenha'
 EMAIL_PORT = 587
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 django_heroku.settings(locals())
