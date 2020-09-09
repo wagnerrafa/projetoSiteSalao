@@ -130,6 +130,6 @@ EMAIL_HOST_USER = 'meuEmail'
 EMAIL_HOST_PASSWORD = 'minhaSenha'
 EMAIL_PORT = 587
 
-""" DISABLE_COLLECTSTATIC=1
- """
+DISABLE_COLLECTSTATIC=1
+
 django_heroku.settings(locals())
