@@ -21,26 +21,7 @@ def home(request):
     info = ""
     servicos = "a"
     contPromo = ""
-    if Servico.objects.all():
-        servicos = Servico.objects.all()
     
-    if MinhaInformacao.objects.all():
-        info = MinhaInformacao.objects.all()
-        
-        for iterar in info:
-            telefone = iterar.telefone
-            email = iterar.email
-            slogan = iterar.slogan
-            endereco = iterar.endereco
-            nomeLugar = iterar.nomeLugar
-            frase = iterar.frase
-            instagram = iterar.instagram
-            foto = iterar.foto
-            logo = iterar.logo
-            fotoFundo = iterar.fotoFundo
-    if Promo.objects.all():
-        promo = Promo.objects.all()
-        contPromo = len(promo)
     
     
     
