@@ -17,7 +17,7 @@ def home(request):
     foto = ""
     logo = ""
     fotoFundo = ""
-    
+    promo = 0
     servicos = Servico.objects.all()
     info = MinhaInformacao.objects.all()
     promo = Promo.objects.all()
