@@ -20,8 +20,7 @@ def home(request):
     promo = 0
     servicos = Servico.objects.all()
     info = MinhaInformacao.objects.all()
-    promo = Promo.objects.all()
-    contPromo = len(promo)
+    contPromo = 1
     
     for iterar in info:
         telefone = iterar.telefone
