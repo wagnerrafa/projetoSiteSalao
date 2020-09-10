@@ -3,11 +3,13 @@ from django.db import models
 class Servico(models.Model):
     servico = models.CharField(
         max_length=50,
-        verbose_name='servico')
+        verbose_name='servico',
+        default="Nome do serviço")
     descricao = models.CharField(
         max_length=255,
-        verbose_name='descricao')
-    upload = models.ImageField(upload_to='media/upload/',verbose_name='Foto do serviço')
+        verbose_name='descricao',
+        default="Descricao")
+    upload = models.ImageField(upload_to='media/upload/',verbose_name='Foto do serviço', default="Foto")
 
 class MinhaInformacao(models.Model):
     telefone = models.CharField(
@@ -65,16 +67,19 @@ class Cliente(models.Model):
     created_at = models.DateField(auto_now_add=True)
 
 class Promo(models.Model):
-    imagemPromo = models.ImageField(upload_to='media/upload/',verbose_name='Foto da Promoção')
+    imagemPromo = models.ImageField(upload_to='media/upload/',verbose_name='Foto da Promoção',default="foto")
     tituloPromo = models.CharField(
         max_length=50,
-        verbose_name='Titulo da Promoção'
+        verbose_name='Titulo da Promoção',
+        default="Titulo da promocao "
     )
     descPromo = models.CharField(
         max_length=255,
-        verbose_name='Descrição com detalhes da promoção'
+        verbose_name='Descrição com detalhes da promoção',
+        default="Descricao da promocao"
     )
     dataDuracao = models.DateField(
-        verbose_name='Data final da Promoção'
+        verbose_name='Data final da Promoção',
+        default="Data duracao"
     )
     dataCriacao = models.DateField(auto_now_add=True)

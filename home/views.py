@@ -5,14 +5,24 @@ from django.utils.safestring import mark_safe
 from django.http import HttpResponse
 
 def home(request):
-    servicos = Servico.objects.all()
-    info = MinhaInformacao.objects.all()
-    promo = Promo.objects.all()
     msgConfirm = " "
     response = "a"
     telefone = " "
     email = " "
+    slogan = " "
+    endereco = " "
+    nomeLugar = ""
+    frase = ""
+    instagram = ""
+    foto = ""
+    logo = ""
+    fotoFundo = ""
+    
+    servicos = Servico.objects.all()
+    info = MinhaInformacao.objects.all()
+    promo = Promo.objects.all()
     contPromo = len(promo)
+    
     for iterar in info:
         telefone = iterar.telefone
         email = iterar.email
