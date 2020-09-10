@@ -38,12 +38,6 @@ class MinhaInformacao(models.Model):
     fotoFundo = models.ImageField(upload_to='media/upload/',verbose_name='Foto de fundo da pagina')
 
 class Cliente(models.Model):
-    dados = Servico.objects.all()
-    Servico1 = []
-    Servico2 = []
-    for dado in dados:
-        Servico2 = Servico1.append(dado)
-    Servico = Servico2
     nome = models.CharField(
         max_length=255,
         verbose_name='Nome'
@@ -60,11 +54,7 @@ class Cliente(models.Model):
         max_length=20,
         verbose_name='Data da sessão'
     )
-    servico = models.CharField(
-        max_length=50,
-        verbose_name='Servico',
-        choices=Servico
-    )
+    
     created_at = models.DateField(auto_now_add=True)
 
 class Promo(models.Model):
