@@ -17,10 +17,11 @@ def home(request):
     foto = ""
     logo = ""
     fotoFundo = ""
-    promo = 0
+    promo = 0 
     servicos = Servico.objects.all()
     info = MinhaInformacao.objects.all()
-    contPromo = 1
+    promo = Promo.objects.all()
+    contPromo = len(promo)
     
     for iterar in info:
         telefone = iterar.telefone
