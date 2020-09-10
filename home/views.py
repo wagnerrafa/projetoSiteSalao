@@ -22,6 +22,7 @@ def home(request):
     servicos = "a"
     contPromo = ""
     
+    
     if request.method == 'POST':
         pessoa = Cliente()
         pessoa.nome = request.POST['nome']
