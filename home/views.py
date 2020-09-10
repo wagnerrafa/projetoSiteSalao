@@ -10,6 +10,8 @@ def home(request):
     promo = Promo.objects.all()
     msgConfirm = " "
     response = "a"
+    telefone = " "
+    email = " "
     contPromo = len(promo)
     for iterar in info:
         telefone = iterar.telefone

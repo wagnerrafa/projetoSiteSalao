@@ -12,30 +12,37 @@ class Servico(models.Model):
 class MinhaInformacao(models.Model):
     telefone = models.CharField(
         max_length=20,
-        verbose_name='Telefone')
+        verbose_name='Telefone',
+        default="0")
     email = models.EmailField(
         max_length=100,
-        verbose_name= 'Email')
+        verbose_name= 'Email',
+        default="exemplo@gmail.com")
     endereco = models.CharField(
         max_length=255,
-        verbose_name='Endereço')
+        verbose_name='Endereço',
+        default="rua 0")
     slogan = models.CharField(
         max_length=255,
-        verbose_name='Slogan')
+        verbose_name='Slogan',
+        default="Aqui vai o slogan")
     nomeLugar = models.CharField(
         max_length=50,
-        verbose_name='Nome do lugar')
+        verbose_name='Nome do lugar',
+        default="Aqui é o nome do lugar")
     frase = models.CharField(
         max_length=255,
-        verbose_name='Frase do logo'
+        verbose_name='Frase do logo',
+        default="Aqui é a frase de efeito"
     )
     instagram = models.CharField(
         max_length=50,
-        verbose_name='Nome do usúario Instagram'
+        verbose_name='Nome do usúario Instagram',
+        default="Aqui é o seu instagram"
     )
-    foto = models.ImageField(upload_to='media/upload/',verbose_name='Foto de capa')
-    logo = models.ImageField(upload_to='media/upload/',verbose_name='Logo')
-    fotoFundo = models.ImageField(upload_to='media/upload/',verbose_name='Foto de fundo da pagina')
+    foto = models.ImageField(upload_to='media/upload/',verbose_name='Foto de capa', default="Aqui sua foto de capa")
+    logo = models.ImageField(upload_to='media/upload/',verbose_name='Logo',default="Aqui sua foto de logo")
+    fotoFundo = models.ImageField(upload_to='media/upload/',verbose_name='Foto de fundo da pagina',default="Aqui sua foto de fundo")
 
 class Cliente(models.Model):
     nome = models.CharField(
