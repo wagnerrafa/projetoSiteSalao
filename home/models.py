@@ -9,7 +9,7 @@ class Servico(models.Model):
         max_length=255,
         verbose_name='descricao',
         default="Descricao")
-    upload = models.ImageField(upload_to='media/upload/',verbose_name='Foto do serviço', default="Foto")
+    upload = models.ImageField(upload_to='media/upload/',verbose_name='Foto do serviço')
 
 class MinhaInformacao(models.Model):
     telefone = models.CharField(
@@ -42,9 +42,9 @@ class MinhaInformacao(models.Model):
         verbose_name='Nome do usúario Instagram',
         default="Aqui é o seu instagram"
     )
-    foto = models.ImageField(upload_to='media/upload/',verbose_name='Foto de capa', default="Aqui sua foto de capa")
-    logo = models.ImageField(upload_to='media/upload/',verbose_name='Logo',default="Aqui sua foto de logo")
-    fotoFundo = models.ImageField(upload_to='media/upload/',verbose_name='Foto de fundo da pagina',default="Aqui sua foto de fundo")
+    foto = models.ImageField(upload_to='media/upload/',verbose_name='Foto de capa', )
+    logo = models.ImageField(upload_to='media/upload/',verbose_name='Logo')
+    fotoFundo = models.ImageField(upload_to='media/upload/',verbose_name='Foto de fundo da pagina')
 
 class Cliente(models.Model):
     nome = models.CharField(
@@ -67,7 +67,7 @@ class Cliente(models.Model):
     created_at = models.DateField(auto_now_add=True)
 
 class Promo(models.Model):
-    imagemPromo = models.ImageField(upload_to='media/upload/',verbose_name='Foto da Promoção',default="foto")
+    imagemPromo = models.ImageField(upload_to='media/upload/',verbose_name='Foto da Promoção')
     tituloPromo = models.CharField(
         max_length=50,
         verbose_name='Titulo da Promoção',
