@@ -1,5 +1,4 @@
+db.sqlite3
 ambiente
 __pycache__
-db.sqlite3
-migrations
-settings.py
+servidor/settings_local.py

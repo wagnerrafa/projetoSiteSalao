@@ -3,25 +3,49 @@ from .models import Servico, MinhaInformacao, Cliente, Promo
 from django.core.mail import EmailMessage
 from django.utils.safestring import mark_safe
 from django.http import HttpResponse
-
+import os
 def home(request):
-    servicos = Servico.objects.all()
-    info = MinhaInformacao.objects.all()
-    promo = Promo.objects.all()
-    msgConfirm = " "
+    msgConfirm = ""
     response = "a"
-    contPromo = len(promo)
-    for iterar in info:
-        telefone = iterar.telefone
-        email = iterar.email
-        slogan = iterar.slogan
-        endereco = iterar.endereco
-        nomeLugar = iterar.nomeLugar
-        frase = iterar.frase
-        instagram = iterar.instagram
-        foto = iterar.foto
-        logo = iterar.logo
-        fotoFundo = iterar.fotoFundo
+ 
+    if Servico.objects.all():
+        servicos = Servico.objects.all()
+        contServicos = servicos.count
+    else:
+        servicos = "a"
+
+    if MinhaInformacao.objects.all():
+        info = MinhaInformacao.objects.all()
+        for iterar in info:
+            telefone = iterar.telefone
+            email = iterar.email
+            slogan = iterar.slogan
+            endereco = iterar.endereco
+            nomeLugar = iterar.nomeLugar
+            frase = iterar.frase
+            instagram = iterar.instagram
+            foto = iterar.foto
+            logo = iterar.logo
+    else:
+        info = ""
+        telefone = " "
+        email = " "
+        slogan = " "
+        endereco = " "
+        nomeLugar = ""
+        frase = ""
+        instagram = ""
+        foto = ""
+        logo = ""
+        fotoFundo = ""
+    if Promo.objects.all():
+        promo = Promo.objects.all()
+        contPromo = len(promo)
+
+    else:
+        promo = ""
+        contPromo = ""
+
     
     if request.method == 'POST':
         pessoa = Cliente()
@@ -42,19 +66,15 @@ def home(request):
         hora = filtrarData1[1]
         data = dia+"/"+mes+"/"+ano
 
-        msgConfirm = "Obrigado "+pessoa.nome+", o serviço de "+pessoa.servico+" foi marcado para o dia "+data+" ás "+hora+". Qualquer dúvida entre em contato pelo telefone "+telefone
-        
-        msgMe = pessoa.nome+" agendou o serviço de "+pessoa.servico+" para o dia "+data+" ás "+hora+" Telefone de contato "+pessoa.telefone+" Email de contato "+pessoa.email
+        msgConfirm = 'Obrigado '+pessoa.nome+'\n\no serviço de '+pessoa.servico+' foi marcado para o dia '+data+' ás '+hora+'\n\nQualquer dúvida entre em contato pelo telefone '+telefone+'\n\nAtenciosamente, \n'+nomeLugar
+        msgMe = "Olá "+nomeLugar+"\n\n"+pessoa.nome+" agendou o serviço de "+pessoa.servico+" para o dia "+data+" ás "+hora+"\nTelefone de contato "+pessoa.telefone+"\nEmail de contato\n"+pessoa.email
         
         emailUser = EmailMessage('Agendamento',mark_safe(msgConfirm), to=[pessoa.email])
-        emailUser.send()
         email = EmailMessage('Novo agendamento',mark_safe(msgMe), to=[email])
+        emailUser.send()
         email.send()
         response = HttpResponse()
         response = response.status_code
 
-
-        
-
-    return render(request, 'index.html', {'dados': servicos, 'info': info, 'telefone':telefone, 'email':email,'slogan':slogan, 'endereco':endereco, 'nomeLugar':nomeLugar,'frase':frase,'msgConfirm':msgConfirm,'instagram':instagram,'foto':foto,'logo':logo,'fotoFundo':fotoFundo,'promo':promo,'contPromo':contPromo,'response':response})
+    return render(request, 'index.html/', {'dados': servicos, 'info': info, 'telefone':telefone, 'email':email,'slogan':slogan, 'endereco':endereco, 'nomeLugar':nomeLugar,'frase':frase,'msgConfirm':msgConfirm,'instagram':instagram,'foto':foto,'logo':logo,'promo':promo,'contPromo':contPromo,'response':response, 'contServicos': contServicos})
 
