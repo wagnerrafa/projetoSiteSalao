@@ -5,9 +5,16 @@ from django.utils.safestring import mark_safe
 from django.http import HttpResponse
 import os
 def home(request):
+    cliente = Cliente.objects.filter(id=1).values()
+    print(cliente)
+    if "wagner_rafa@hotmail.com.br" in cliente[0]['email']:
+        print('id\n')
+    for x in cliente:
+        if "wagner_rafa@hotmail.com.br" in x:
+            print(x,'x\n')
     msgConfirm = ""
     response = "a"
- 
+    contServicos = 0
     if Servico.objects.all():
         servicos = Servico.objects.all()
         contServicos = servicos.count
@@ -71,8 +78,8 @@ def home(request):
         
         emailUser = EmailMessage('Agendamento',mark_safe(msgConfirm), to=[pessoa.email])
         email = EmailMessage('Novo agendamento',mark_safe(msgMe), to=[email])
-        emailUser.send()
-        email.send()
+        #emailUser.send()
+        #email.send()
         response = HttpResponse()
         response = response.status_code
 

@@ -14,7 +14,7 @@ import django_heroku
 import psycopg2
 from pathlib import Path
 from getpass import getpass
-from .env import *
+#from .env import *
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,8 +25,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('debug')
-
+#DEBUG = os.environ.get('debug')
+DEBUG = True
 ALLOWED_HOSTS = [] 
 # Application definition
 

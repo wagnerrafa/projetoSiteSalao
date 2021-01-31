@@ -1,6 +1,12 @@
 from django.db import models
 from cloudinary.models import CloudinaryField
 
+from fernet_fields import EncryptedTextField, EncryptedEmailField, EncryptedCharField,EncryptedDateField
+
+
+class MyModel(models.Model):
+    name = EncryptedTextField()
+
 class Servico(models.Model):
     servico = models.CharField(
         max_length=50,
@@ -51,37 +57,30 @@ class MinhaInformacao(models.Model):
     class Meta:
             verbose_name_plural = 'Minhas informações'
 class Cliente(models.Model):
-    if Servico.objects.all():
-        dados = Servico.objects.all()
-        Servico1 = []
-        Servico2 = []
-        for dado in dados:
-            Servico2 = Servico1.append(dado)
-        Servico = Servico2
-    else:
-        Servico = ""
-    nome = models.CharField(
-        max_length=255,
-        verbose_name='Nome'
+    Servico = (('a','b'),('c','d'))
+
+    nome = EncryptedTextField(
+         max_length=20,
+        verbose_name='Telefone'
     )
     telefone = models.CharField(
         max_length=20,
         verbose_name='Telefone'
     )
-    email = models.EmailField(
+    email = EncryptedEmailField(
         max_length=255,
         verbose_name='Email'
     )
-    date = models.CharField(
+    date = EncryptedCharField(
         max_length=20,
         verbose_name='Data da sessão'
     )
-    servico = models.CharField(
+    servico = EncryptedCharField(
         max_length=50,
         verbose_name='Servico',
         choices=Servico
     )
-    created_at = models.DateField(auto_now_add=True)
+    created_at = EncryptedDateField(auto_now_add=True)
     def __str__(self):
         return(self.nome)
 
